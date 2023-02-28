@@ -126,3 +126,5 @@ export const deleteAlbum = async (id) => {
     return null;
   }
 };
+
+export const shazamSongs = async (data) => {};

@@ -8,6 +8,7 @@ const userRoutes = require("./routes/auth");
 const songsRoutes = require("./routes/songs");
 const artistsRoutes = require("./routes/artists");
 const albumsRoutes = require("./routes/albums");
+const shazamRoutes = require("./routes/shazam");
 
 app.use(cors({ origin: true }));
 app.use(express.json());
@@ -23,6 +24,8 @@ app.use("/api/songs/", songsRoutes);
 app.use("/api/artists/", artistsRoutes);
 
 app.use("/api/albums/", albumsRoutes);
+
+app.use("/api/shazam/", shazamRoutes);
 
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true });
 

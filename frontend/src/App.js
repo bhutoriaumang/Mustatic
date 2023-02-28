@@ -4,7 +4,7 @@ import { Login, Home, Dashboard, MusicPlayer } from "./components";
 import { app } from "./config/firebase.config";
 import { getAuth } from "firebase/auth";
 import { AnimatePresence } from "framer-motion";
-import { validateUser } from "./api/index";
+import { shazamSongs, validateUser } from "./api/index";
 import { useStateValue } from "./context/StateProvider";
 import { actionTypes } from "./context/reducer";
 import { motion } from "framer-motion";
@@ -19,6 +19,7 @@ function App() {
   );
 
   useEffect(() => {
+    shazamSongs();
     firebaseAuth.onAuthStateChanged((user) => {
       if (user) {
         user.getIdToken().then((token) => {
